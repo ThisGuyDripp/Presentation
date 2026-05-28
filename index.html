@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>High-Yield Lithological Triad — Phyllite · Essexite · Permian Limestone</title>
-<meta name="description" content="Interactive geological presentation: High-Yield Lithological Triad covering Phyllite, Essexite, and Permian Fusulinid Limestone from the Philippine archipelago."/>
+<meta name="description" content="Interactive geological presentation: High-Yield Lithological Triad covering Phyllite, Essexite, and Permian Fusulinid Limestone."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -24,7 +24,7 @@ window.MathJax = {
 };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-<!-- React 18, Babel Standalone, Lucide -->
+<!-- React 18, Babel Standalone, Lucide Icons -->
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -152,15 +152,7 @@ const L = {
   kbar:"$2\\text{--}4\\text{ kbar}$",
   // Ages & values
   scs: "$32\\text{--}17\\text{ Ma}$",
-  melt:"$<\\!10\\%$",
   phot:"$<\\!50\\text{ m}$",
-  hT:  "$>\\!600^\\circ\\text{C}$",
-  // Geochemical
-  olPlCpx:"$\\text{Ol}\\text{--}\\text{Pl}\\text{--}\\text{Cpx}$",
-  nbTa:"$\\text{Nb}\\text{--}\\text{Ta}$",
-  tio2:"$\\text{TiO}_2$",
-  al2o3:"$\\text{Al}_2\\text{O}_3$",
-  hfse:"HFSE",
 };
 
 /* ═══════════════════ ICON HELPER ═══════════════════ */
@@ -238,19 +230,14 @@ function Modal({data,onClose}) {
   );
 }
 
-/* ═══════════════════ SLIDE METADATA ═══════════════════ */
+/* ═══════════════════ STREAMLINED SLIDE METADATA (SLIDES 1 TO 4) ═══════════════════ */
 const SLIDES = [
   {id:1, title:'High-Yield Lithological Triad', sub:'Structural, Magmatic, and Stratigraphic Overview', type:'neutral', short:'Overview'},
   {id:2, title:'Phyllite', sub:'Mineral Chemistry, Crystal Growth, and Optical Luster', type:'metamorphic', short:'Phyllite'},
   {id:3, title:'Essexite', sub:'Alkaline Monzogabbro Classification and Sub-Ophitic Textures', type:'igneous', short:'Essexite'},
   {id:4, title:'Permian Limestone', sub:'Paleo-Tethyan Ramp Facies and Fusulinid Biostratigraphy', type:'sedimentary', short:'Limestone'},
-  {id:5, title:'Petrogenetic Pathways', sub:'Metamorphic Reactions and Melt Fractionation', type:'neutral', short:'Petrogenesis'},
-  {id:6, title:'North Palawan Block', sub:'Rifting, Drift, and Collision', type:'sedimentary', short:'NPB Drift'},
-  {id:7, title:'Metamorphic Basements', sub:'Philippine Subduction and Metamorphism', type:'metamorphic', short:'PH Basements'},
-  {id:8, title:'Potassic Volcano-Plutonic Belts', sub:'Oligocene–Miocene Complexes in Northern Luzon', type:'igneous', short:'N. Luzon Belts'},
-  {id:9, title:'Alkaline Ore Systems', sub:'Dinkidi and Runruno Porphyries', type:'igneous', short:'Ore Deposits'},
-  {id:10,title:'Tectonic Synthesis', sub:'Terrane Accretion and Suture Geometries', type:'neutral', short:'Synthesis'},
 ];
+
 function typeClr(t){return t==='metamorphic'?'var(--meta)':t==='igneous'?'var(--ign)':t==='sedimentary'?'var(--sed)':'var(--text-light)';}
 function tagCls(t){return t==='metamorphic'?'t-m':t==='igneous'?'t-i':t==='sedimentary'?'t-s':'';}
 function cardCls(t){return t==='metamorphic'?'card-m':t==='igneous'?'card-i':t==='sedimentary'?'card-s':'card-n';}
@@ -447,312 +434,6 @@ function S4({oc}) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SLIDE 5 — PETROGENETIC PATHWAYS
-   ═══════════════════════════════════════════════════════════════ */
-function S5() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.2rem,2.4vw,1.7rem)',marginBottom:'.2rem'}}>Petrogenetic Pathways</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>Metamorphic Reactions, Melt Fractionation, and Diagenetic Stabilization</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:'.8rem',flex:1,minHeight:0}}>
-        {/* Phyllite */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.5rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.1rem'}}>
-            <div style={{width:'28px',height:'28px',borderRadius:'7px',background:'var(--meta)',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'.75rem',fontWeight:700}}>M</div>
-            <h4 style={{fontSize:'.82rem',color:'var(--meta)',fontFamily:'var(--font-h)'}}>Phyllite Petrogenesis</h4>
-          </div>
-          <div className="card card-m" style={{flex:1}}>
-            <h4 style={{color:'var(--meta)'}}>Prograde Devolatilization</h4>
-            <p>{"Prograde dehydration and devolatilization of pelitic precursor clays (illite/smectite) releases structural $\\text{H}_2\\text{O}$ and $\\text{CO}_2$. Nucleation of sericite "}{L.ser}{" and chlorite "}{L.chl}{" at greenschist conditions ("}{L.tPhy}{", "}{L.pPhy}{")."}</p>
-          </div>
-          <div className="card card-m">
-            <h4 style={{color:'var(--meta)'}}>Barrovian Sequence</h4>
-            <p>{"Transitional stage in the Barrovian sequence: Slate $\\rightarrow$ \\textbf{Phyllite} $\\rightarrow$ Schist. Crystal size increases as grain boundaries migrate under increasing thermal energy."}</p>
-          </div>
-        </div>
-        {/* Essexite */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.5rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.1rem'}}>
-            <div style={{width:'28px',height:'28px',borderRadius:'7px',background:'var(--ign)',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'.75rem',fontWeight:700}}>I</div>
-            <h4 style={{fontSize:'.82rem',color:'var(--ign)',fontFamily:'var(--font-h)'}}>Essexite Petrogenesis</h4>
-          </div>
-          <div className="card card-i" style={{flex:1}}>
-            <h4 style={{color:'var(--ign)'}}>Low-Degree Partial Melting</h4>
-            <p>{"Low-degree partial melting ("}{L.melt}{") of hydrous, metasomatized lithospheric mantle in the garnet stability zone produces silica-undersaturated alkaline melts enriched in alkalis, LILE, and volatiles."}</p>
-          </div>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Magmatic Divide</h4>
-            <p>{"Early olivine + clinopyroxene crystallization prevents the melt from crossing the critical plane of silica undersaturation ("}{L.olPlCpx}{"). The residual liquid evolves toward nepheline-normative compositions."}</p>
-          </div>
-        </div>
-        {/* Limestone */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.5rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.1rem'}}>
-            <div style={{width:'28px',height:'28px',borderRadius:'7px',background:'var(--sed)',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'.75rem',fontWeight:700}}>S</div>
-            <h4 style={{fontSize:'.82rem',color:'var(--sed)',fontFamily:'var(--font-h)'}}>Limestone Diagenesis</h4>
-          </div>
-          <div className="card card-s" style={{flex:1}}>
-            <h4 style={{color:'var(--sed)'}}>Carbonate Stabilization</h4>
-            <p>{"Meteoric and deep-burial recrystallization converts metastable aragonite and high-Mg calcite to stable low-Mg calcite. Sparite cementation fills fusulinid chambers with crystalline blocky calcite "}{L.calc}{" during diagenesis."}</p>
-          </div>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>Biogenic Production</h4>
-            <p>{"Fusulinid foraminifera hosted photosynthetic endosymbionts, restricting them to the photic zone ("}{L.phot}{"). Their calcareous test secretion drove high carbonate productivity on tropical platforms."}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SLIDE 6 — NORTH PALAWAN BLOCK
-   ═══════════════════════════════════════════════════════════════ */
-function S6() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.2rem,2.4vw,1.7rem)',marginBottom:'.15rem'}}>Rifting, Drift, and Collision of the North Palawan Block</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>From Cathaysian passive margin to Philippine arc–continent collision</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1rem',flex:1,minHeight:0}}>
-        <div style={{display:'flex',flexDirection:'column',gap:'.5rem'}}>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>Stratigraphy</h4>
-            <p>{"Guadalupian (Middle Permian) $\\textbf{Minilog Formation}$ exposed in the El Nido karst of Palawan, overlain by the basal $\\textbf{Bacuit Formation}$. Both units are passive-margin carbonate remnants of the North Palawan Block (NPB)."}</p>
-          </div>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>Continental Origins</h4>
-            <p>The NPB is a continental fragment rifted from the southeastern margin of <strong>Cathaysia</strong> (South China). Permian fusulinid limestones and associated facies confirm Cathaysian paleobiogeographic affinity via shared fauna (verbeekinids, neoschwagerinids).</p>
-          </div>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>Paleobiogeographic Evidence</h4>
-            <p>Fusulinid assemblages from El Nido match coeval assemblages from South China, Indochina, and Shan-Thai blocks — all part of the Cathaysian paleobiogeographic province along the eastern Tethyan margin.</p>
-          </div>
-        </div>
-        <div style={{display:'flex',flexDirection:'column',gap:'.5rem'}}>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>South China Sea Opening</h4>
-            <p>{"Oligocene–Miocene seafloor spreading ("}{L.scs}{") opened the South China Sea, translating the NPB southward as a continental ribbon away from the Eurasian margin. Magnetic anomalies and ocean-floor stratigraphy constrain the timing."}</p>
-          </div>
-          <div className="card card-s">
-            <h4 style={{color:'var(--sed)'}}>Arc–Continent Collision</h4>
-            <p>Middle–Late Miocene collision of the NPB with the <strong>Philippine Mobile Belt (PMB)</strong> formed the <strong>Mindoro Suture Zone</strong> — a major structural boundary marked by sheared tectonic slices, ophiolitic fragments, and serpentinized mantle peridotite.</p>
-          </div>
-          <div className="card card-n">
-            <h4 style={{color:'var(--text-muted)'}}>Tectonic Sequence</h4>
-            <p>{"$\\text{Permian deposition}$ $\\rightarrow$ $\\text{Mesozoic passive margin}$ $\\rightarrow$ $\\text{Oligocene rifting}$ $\\rightarrow$ $\\text{SCS spreading}$ ("}{L.scs}{") $\\rightarrow$ $\\text{Miocene collision with PMB}$"}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SLIDE 7 — PHILIPPINE METAMORPHIC BASEMENTS
-   ═══════════════════════════════════════════════════════════════ */
-function S7() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.1rem,2.2vw,1.6rem)',marginBottom:'.15rem'}}>Philippine Metamorphic Basements</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>Subduction, accretion, and arc–continent metamorphism across the archipelago</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr 1fr',gap:'.7rem',flex:1,minHeight:0}}>
-        {/* Conception */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-m" style={{flex:1}}>
-            <h4 style={{color:'var(--meta)'}}>Conception Phyllite</h4>
-            <p><strong>Mindoro / Lubang Islands</strong></p>
-            <p style={{marginTop:'.3rem'}}>{"Metamorphic basement of the NPB. Formed during the $\\textbf{Miocene arc–continent collision}$ as the NPB collided with the PMB. Greenschist-facies conditions ("}{L.tPhy}{", "}{L.pPhy}{") converted pelitic protoliths into phyllites."}</p>
-          </div>
-          <div className="card card-m">
-            <h4 style={{color:'var(--meta)'}}>Driver</h4>
-            <p>Miocene arc–continent collision (NPB vs. PMB intra-oceanic arcs)</p>
-          </div>
-        </div>
-        {/* Alicia */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-m" style={{flex:1}}>
-            <h4 style={{color:'var(--meta)'}}>Alicia Schist</h4>
-            <p><strong>Bohol</strong></p>
-            <p style={{marginTop:'.3rem'}}>Thrust east-verging against the <strong>Southeast Bohol Ophiolite Complex (SEBOC)</strong> and the <strong>Cansiwang Mélange</strong>. Records <strong>Mesozoic accretion-subduction</strong> metamorphism.</p>
-          </div>
-          <div className="card card-m">
-            <h4 style={{color:'var(--meta)'}}>Driver</h4>
-            <p>Mesozoic accretion-subduction along the proto-Philippine arc system</p>
-          </div>
-        </div>
-        {/* Caramoan */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-m" style={{flex:1}}>
-            <h4 style={{color:'var(--meta)'}}>Caramoan Schist</h4>
-            <p><strong>Caramoan Peninsula, Luzon</strong></p>
-            <p style={{marginTop:'.3rem'}}>Part of the Mesozoic basement of southeastern Luzon. Records accretion-subduction metamorphism coeval with Alicia Schist. Exposed in structural windows through younger volcanic cover.</p>
-          </div>
-          <div className="card card-m">
-            <h4 style={{color:'var(--meta)'}}>Driver</h4>
-            <p>Mesozoic accretion-subduction (Bohol/Luzon system)</p>
-          </div>
-        </div>
-      </div>
-      <div className="a-in d3" style={{padding:'.6rem .9rem',background:'var(--meta-bg)',borderRadius:'8px',fontSize:'.75rem',color:'var(--text-muted)',lineHeight:1.5,textAlign:'center',borderLeft:'3px solid var(--meta)'}}>
-        <strong>Resources:</strong> Shear-controlled volcanogenic massive sulfide (VMS) and mesothermal quartz-vein gold deposits are associated with metamorphic basement terranes.
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SLIDE 8 — POTASSIC BELTS
-   ═══════════════════════════════════════════════════════════════ */
-function S8() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.1rem,2.2vw,1.55rem)',marginBottom:'.15rem'}}>Oligocene–Miocene Potassic Volcano-Plutonic Belts</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>Northern Luzon back-arc alkaline magmatism</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'.9rem',flex:1,minHeight:0}}>
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Plutonic Complexes</h4>
-            <div style={{fontSize:'.78rem',lineHeight:1.6}}>
-              <div style={{marginBottom:'.2rem'}}>• <strong>Didipio Igneous Complex</strong> — Nueva Vizcaya</div>
-              <div style={{marginBottom:'.2rem'}}>• <strong>Palali Intrusive Complex</strong> (batholith) — Cagayan Valley</div>
-              <div>• <strong>Cordon Syenite</strong> — Isabela, Northern Luzon</div>
-            </div>
-          </div>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Flanking Cumulates</h4>
-            <p>Cumulate clinopyroxene gabbros and monzogabbros form the mafic flanks of the plutonic complexes, grading inward to more evolved monzodioritic and syenitic compositions.</p>
-          </div>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Melt Source</h4>
-            <p>Decompression melting of a <strong>subduction-modified lithospheric mantle wedge</strong> tapped by late Oligocene back-arc extension. Metasomatic enrichment explains high alkali and LILE concentrations.</p>
-          </div>
-        </div>
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-i" style={{flex:1}}>
-            <h4 style={{color:'var(--ign)'}}>Geochemistry</h4>
-            <div style={{fontSize:'.78rem',lineHeight:1.65}}>
-              <p style={{marginBottom:'.4rem'}}>{"$\\textbf{High-K shoshonitic trend}$ with elevated alkalis ($\\text{Na}_2\\text{O} + \\text{K}_2\\text{O}$) and LILE enrichment."}</p>
-              <p style={{marginBottom:'.4rem'}}>{"Negative "}{L.nbTa}{" anomalies on mantle-normalized spider diagrams — a hallmark of subduction-zone magmatism (high-field-strength element depletion in the mantle wedge)."}</p>
-              <p>{"Essexitic compositions plot in QAPF Field 13 with nepheline-normative residual melts reflecting the critical plane of silica undersaturation ("}{L.olPlCpx}{")."}</p>
-            </div>
-          </div>
-          <div className="card card-n">
-            <h4 style={{color:'var(--text-muted)'}}>Tectonic Setting</h4>
-            <p>Northern Luzon <strong>back-arc rift</strong> — extensional tectonics facilitated the ascent of deep-sourced alkaline melts through the thinned arc crust.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SLIDE 9 — ORE SYSTEMS
-   ═══════════════════════════════════════════════════════════════ */
-function S9() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.1rem,2.2vw,1.55rem)',marginBottom:'.15rem'}}>Under-Saturated Alkaline Ore Systems</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>Dinkidi Cu–Au Porphyry and Runruno Au–Mo Epithermal Deposits</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1rem',flex:1,minHeight:0}}>
-        {/* Dinkidi */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.1rem'}}>
-            <div style={{width:'26px',height:'26px',borderRadius:'6px',background:'var(--ign)',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'.7rem',fontWeight:700}}>Cu</div>
-            <h4 style={{fontSize:'.82rem',color:'var(--ign)',fontFamily:'var(--font-h)'}}>Dinkidi Cu–Au Porphyry</h4>
-          </div>
-          <div className="card card-i" style={{flex:1}}>
-            <h4 style={{color:'var(--ign)'}}>Alteration Assemblage</h4>
-            <p>{"Quartz-undersaturated $\\textbf{calc-potassic alteration}$: diopside + actinolite + perthitic K-feldspar + bornite + magnetite. Absence of typical quartz stockwork veins distinguishes this from calc-alkaline porphyry systems."}</p>
-          </div>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Hydrothermal Fluids</h4>
-            <p>{"Hypersaline, oxidized, sulfur-rich magmatic brines ("}{L.hT}{") exsolved from the crystallizing essexitic pluton. High $f\\text{O}_2$ stabilizes magnetite + bornite over pyrite."}</p>
-          </div>
-        </div>
-        {/* Runruno */}
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div style={{display:'flex',alignItems:'center',gap:'.4rem',marginBottom:'.1rem'}}>
-            <div style={{width:'26px',height:'26px',borderRadius:'6px',background:'var(--ign)',display:'flex',alignItems:'center',justifyContent:'center',color:'white',fontSize:'.7rem',fontWeight:700}}>Au</div>
-            <h4 style={{fontSize:'.82rem',color:'var(--ign)',fontFamily:'var(--font-h)'}}>Runruno Au–Mo Epithermal</h4>
-          </div>
-          <div className="card card-i" style={{flex:1}}>
-            <h4 style={{color:'var(--ign)'}}>Deposit Character</h4>
-            <p>High-sulfidation epithermal Au–Mo deposit genetically linked to the essexitic volcanic-plutonic complex. Shallow emplacement with advanced argillic alteration overprinting earlier potassic cores.</p>
-          </div>
-          <div className="card card-i">
-            <h4 style={{color:'var(--ign)'}}>Geochemical Signatures</h4>
-            <p>{"Low "}{L.tio2}{", low HFSE, high "}{L.al2o3}{" — representing late-stage island-arc magmatic evolution. These signatures fingerprint the evolved, subduction-modified mantle source."}</p>
-          </div>
-        </div>
-      </div>
-      <div className="a-in d3" style={{padding:'.55rem .85rem',background:'var(--ign-bg)',borderRadius:'8px',fontSize:'.74rem',color:'var(--text-muted)',lineHeight:1.5,textAlign:'center',borderLeft:'3px solid var(--ign)'}}>
-        <strong>Key insight:</strong> Both deposits are hosted within <strong>quartz-undersaturated</strong> alkaline intrusions — a globally rare but economically significant association requiring specialized exploration models.
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
-   SLIDE 10 — TECTONIC SYNTHESIS
-   ═══════════════════════════════════════════════════════════════ */
-function S10() {
-  return (
-    <div style={{display:'flex',flexDirection:'column',height:'100%',gap:'.7rem'}}>
-      <div className="a-in">
-        <h2 style={{fontSize:'clamp(1.2rem,2.4vw,1.7rem)',marginBottom:'.15rem'}}>Tectonic Synthesis</h2>
-        <p style={{fontSize:'.78rem',color:'var(--text-muted)'}}>Terrane Accretion and Suture Geometries of the Western Philippine Margin</p>
-      </div>
-      <div className="a-in d1" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'1rem',flex:1,minHeight:0}}>
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-n" style={{borderLeftColor:'var(--meta)'}}>
-            <h4 style={{color:'var(--meta)'}}>Mindoro Suture Zone</h4>
-            <p>The suture is marked by <strong>sheared tectonic slices</strong> and <strong>serpentinized mantle peridotite bodies</strong> — remnants of the consumed oceanic lithosphere between the passive Eurasian margin (NPB) and the intra-oceanic arcs of the PMB.</p>
-          </div>
-          <div className="card card-n" style={{borderLeftColor:'var(--ign)'}}>
-            <h4 style={{color:'var(--ign)'}}>Collision Dynamics</h4>
-            <p>The passive Eurasian margin (represented by the NPB with its Permian limestones) collided with the intra-oceanic arc systems of the PMB. This collision drove:</p>
-            <div style={{fontSize:'.76rem',marginTop:'.3rem',lineHeight:1.55}}>
-              <div>• <strong>Structural transposition</strong> — regional folding and thrust stacking</div>
-              <div>• <strong>Regional metamorphism</strong> — greenschist-facies phyllite generation</div>
-              <div>• <strong>Metallogenic activity</strong> — porphyry/epithermal belt emplacement</div>
-            </div>
-          </div>
-        </div>
-        <div style={{display:'flex',flexDirection:'column',gap:'.45rem'}}>
-          <div className="card card-n" style={{borderLeftColor:'var(--sed)'}}>
-            <h4 style={{color:'var(--sed)'}}>Crustal Accretion</h4>
-            <p>Progressive terrane accretion shaped the western Philippine margin through successive episodes of subduction, collision, and back-arc extension. Each episode added crustal material and generated distinct lithological assemblages:</p>
-            <div style={{fontSize:'.76rem',marginTop:'.3rem',lineHeight:1.55}}>
-              <div><span className="tag t-m" style={{fontSize:'.6rem',padding:'.1rem .35rem'}}>META</span> Phyllites &amp; schists — collision metamorphism</div>
-              <div style={{marginTop:'.15rem'}}><span className="tag t-i" style={{fontSize:'.6rem',padding:'.1rem .35rem'}}>IGN</span> Essexites &amp; syenites — back-arc magmatism</div>
-              <div style={{marginTop:'.15rem'}}><span className="tag t-s" style={{fontSize:'.6rem',padding:'.1rem .35rem'}}>SED</span> Permian limestones — passive-margin stratigraphy</div>
-            </div>
-          </div>
-          <div className="card card-n">
-            <h4 style={{color:'var(--text-muted)'}}>Geological Footprint</h4>
-            <p>The three lithologies of the triad are the direct products of the three fundamental tectonic processes operating in the Philippine archipelago: <strong>collision metamorphism</strong>, <strong>back-arc magmatism</strong>, and <strong>passive-margin sedimentation</strong> — unified by terrane accretion along the western Pacific convergent margin.</p>
-          </div>
-        </div>
-      </div>
-      <div className="a-in d3" style={{textAlign:'center',fontSize:'.72rem',color:'var(--text-light)',padding:'.3rem'}}>
-        High-Yield Lithological Triad &nbsp;·&nbsp; Philippine Petrology &nbsp;·&nbsp; Structural, Magmatic, and Stratigraphic Overview
-      </div>
-    </div>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════
    MAIN APP
    ═══════════════════════════════════════════════════════════════ */
 function App() {
@@ -812,19 +493,13 @@ function App() {
       case 1: return <S2 oc={oc}/>;
       case 2: return <S3 oc={oc}/>;
       case 3: return <S4 oc={oc}/>;
-      case 4: return <S5/>;
-      case 5: return <S6/>;
-      case 6: return <S7/>;
-      case 7: return <S8/>;
-      case 8: return <S9/>;
-      case 9: return <S10/>;
       default: return null;
     }
   };
 
   /* ── PRINT MODE ── */
   if(print){
-    return(
+    return (
       <div className="print-mode">
         {SLIDES.map((s,i)=>(
           <div key={i} className="slide-vp">
@@ -839,7 +514,7 @@ function App() {
   }
 
   /* ── NORMAL MODE ── */
-  return(
+  return (
     <div style={{minHeight:'100vh',display:'flex',flexDirection:'column',justifyContent:'center',padding:'1.2rem .8rem'}}>
       {/* Sidebar overlay */}
       <div className={`sb-ov ${sb?'vis':''}`} onClick={()=>setSb(false)}/>
